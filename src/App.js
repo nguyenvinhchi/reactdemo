@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import BurgerHome from './burger/components/BurgerHome/BurgerHome'
+import ExpenseHomePage from './expense/components/ExpenseHomePage/ExpenseHomePage';
 
 class App extends Component {
   
   render() {
     return (
-      <BurgerHome />
+      <ExpenseHomePage />
     );
   }
 }
