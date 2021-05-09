@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import ExpenseHomePage from './expense/components/ExpenseHomePage/ExpenseHomePage';
+import Courses2HomePage from './courses2/Courses2HomePage';
 
 class App extends Component {
   
   render() {
     return (
-      <ExpenseHomePage />
+      <Courses2HomePage />
     );
   }
 }
