@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal/ErrorModal";
 import Button from "../UI/Button";
@@ -8,9 +8,12 @@ const AddUser = (props) => {
   const [usernameValue, setUsernameValue] = useState("");
   const [ageValue, setAgeValue] = useState("");
   const [error, setError] = useState();
+  const usernameInputRef = useRef();
+  const ageInputRef = useRef();
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    console.log(usernameInputRef.current.value)
     const data = {
       username: usernameValue.trim(),
       age: Number(ageValue),
@@ -58,6 +61,7 @@ const AddUser = (props) => {
           <div>
             <label htmlFor="username">Username</label>
             <input
+              ref={usernameInputRef}
               id="username"
               type="text"
               value={usernameValue}
@@ -67,6 +71,7 @@ const AddUser = (props) => {
           <div>
             <label htmlFor="age">Age (Years)</label>
             <input
+              ref={ageInputRef}
               id="age"
               type="number"
               value={ageValue}
