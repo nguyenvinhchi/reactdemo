@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import FoodOrderHomePage from './foodorder/FoodOrderHomePage';
-import DemoHome from './reactinanutshelll/DemoHome/DemoHome';
+import FormValidationHome from './formvalidation/FormValidationHome';
 
 class App extends Component {
   
   render() {
     return (
-      <DemoHome />
+      <FormValidationHome />
     );
   }
 }
