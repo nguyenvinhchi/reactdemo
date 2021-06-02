@@ -1,37 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AvailableMeals.css";
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
-    price: 16.5,
-  },
-  {
-    id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 12.99,
-  },
-  {
-    id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
-  },
-];
-
+const MEAL_API_URL = "https://react-demo-8d4f0.firebaseio.com/meals.json";
 const AvailableMeals = () => {
-  const mealList = DUMMY_MEALS.map((it) => (
+  const [mealsData, setMealsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const res = await fetch(MEAL_API_URL);
+
+      const responseData = await res.json();
+      const loadedMeals = [];
+      for (const key in responseData) {
+        loadedMeals.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+        });
+      }
+      setMealsData(loadedMeals);
+      setIsLoading(false);
+    };
+
+    fetchMeals().catch((err) => {
+      setIsLoading(false);
+      setError("Something went wrong!");
+    });
+  }, []);
+  // console.log(mealsData);
+
+  const mealList = mealsData.map((it) => (
     <MealItem
       id={it.id}
       key={it.id}
@@ -40,6 +43,15 @@ const AvailableMeals = () => {
       price={it.price}
     />
   ));
+
+  if (isLoading) {
+    return <p className={styles["meals-loading"]}>Loading...</p>;
+  }
+
+  if (error) {
+    return <p className={styles["meals-error"]}>{error}</p>;
+  }
+
   return (
     <section className={styles.meals}>
       <Card>

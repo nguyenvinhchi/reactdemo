@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import FormValidationHome from './formvalidation/FormValidationHome';
+import FoodOrderHomePage from './foodorder/FoodOrderHomePage';
 
 class App extends Component {
   
   render() {
     return (
-      <FormValidationHome />
+      <FoodOrderHomePage />
     );
   }
 }
