@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import FoodOrderHomePage from './foodorder/FoodOrderHomePage';
+import Counter2HomePage from './counter2/Counter2HomePage';
 
 class App extends Component {
   
   render() {
     return (
-      <FoodOrderHomePage />
+      <Counter2HomePage />
     );
   }
 }
