@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import CartHome from './cart/components/CartHome';
+import QuoteHome from './quoterouter/QuoteHome';
 
 class App extends Component {
   
   render() {
     return (
-      <CartHome />
+      <QuoteHome />
     );
   }
 }
