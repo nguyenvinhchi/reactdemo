@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import QuoteHome from './quoterouter/QuoteHome';
+import AuthDemoHome from './authdemo/AuthDemoHome';
 
 class App extends Component {
   
   render() {
     return (
-      <QuoteHome />
+      <AuthDemoHome />
     );
   }
 }
