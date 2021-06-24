@@ -1,0 +1,3 @@
+export const FETCH_MEAL = 'FETCH_MEAL';
+export const FETCH_MEAL_SUCCESS = 'FETCH_MEAL_SUCCESS';
+export const FETCH_MEAL_FAIL = 'FETCH_MEAL_FAIL';

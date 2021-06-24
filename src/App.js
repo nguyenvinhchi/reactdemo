@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import BurgerHome from './burger/components/BurgerHome/BurgerHome'
+import AuthDemoHome from './authdemo/AuthDemoHome';
 
 class App extends Component {
   
   render() {
     return (
-      <BurgerHome />
+      <AuthDemoHome />
     );
   }
 }
